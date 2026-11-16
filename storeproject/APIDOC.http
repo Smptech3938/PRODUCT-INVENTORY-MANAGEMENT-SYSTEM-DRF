@@ -1,0 +1,109 @@
+# api to create a product
+###
+POST http://127.0.0.1:8000/products/
+Content-Type: application/json
+
+{
+"name": "Keyboard",
+"description": "Wireless keyboard",
+"category": "electronics",
+"price": "50.00",
+"stock": 20
+}
+
+# Product 2
+###
+POST http://127.0.0.1:8000/products/
+Content-Type: application/json
+
+{
+"name": "Rice",
+"description": "Premium rice bag",
+"category": "food",
+"price": "40.00",
+"stock": 5
+}
+
+# product 3
+###
+POST http://127.0.0.1:8000/products/
+Content-Type: application/json
+
+{
+"name": "pants",
+"description": "Denim pants",
+"category": "cloths",
+"price": "750.00",
+"stock": 16
+}
+
+# product 4
+###
+POST http://127.0.0.1:8000/products/
+Content-Type: application/json
+
+{
+"name": "Shirts",
+"description": "Linen Shirts",
+"category": "cloths",
+"price": "1500.00",
+"stock": 12
+}
+
+# API call to list all products
+###
+GET http://127.0.0.1:8000/products/
+
+# API call to get product by id
+###
+GET http://127.0.0.1:8000/products/1/
+
+###
+GET http://127.0.0.1:8000/products/3/
+
+# API call to update product details
+###
+PUT http://127.0.0.1:8000/products/3/
+Content-Type: application/json
+
+{
+    "name": "pants",
+    "description": "Oxford pants",
+    "category": "cloths",
+    "price": "7500.00",
+    "stock": 10
+}
+
+# API call for partial update
+###
+PATCH http://127.0.0.1:8000/products/4/
+Content-Type: application/json
+
+{
+    "stock":7
+}
+
+# API call for delete a product
+###
+DELETE http://127.0.0.1:8000/products/4/
+
+----------------(1)PRODUCT PRICE NEGATIVE VALIDATION--------------
+###
+POST http://127.0.0.1:8000/products/
+Content-Type: application/json
+
+{
+    "name": "shorts",
+    "description": "Levis",
+    "category": "cloths",
+    "price": "-7500.00",
+    "stock": 19
+}
+
+#----------------(4)API call to search by name----------------------
+###
+GET http://127.0.0.1:8000/products/?search=pants
+
+#-----------------(3)stock lessthan 10------------------------------
+###
+GET http://127.0.0.1:8000/products/?ordering=stock
